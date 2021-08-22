@@ -34,6 +34,14 @@ public class Paint extends JApplet implements MouseListener, MouseMotionListener
 		app.init();
 	}
 
+	@Override public int getWidth() {
+		return 800;
+	}
+
+	@Override public int getHeight() {
+		return 600;
+	}
+
 	public void init() {
 		setLayout(new BorderLayout());
 		addMouseListener(this);
