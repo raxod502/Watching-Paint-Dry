@@ -19,26 +19,26 @@ public class Paint extends JApplet implements MouseListener, MouseMotionListener
 	int mouse = 0;
 	int life = (50 * 60 * 2) / 7;
 	boolean finished = false;
-	
+
 	static JFrame frame;
-	
+
 	public static void main(String[] args) {
 		frame = new JFrame("Watching Paint Dry: The Game");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-		
+
 		JApplet app = new Paint();
 		app.setFocusable(true);
 		frame.add("Center", app);
 		frame.pack();
 		app.init();
 	}
-	
+
 	public void init() {
 		setLayout(new BorderLayout());
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		
+
 		wall = config.createCompatibleImage(getWidth(), getHeight(), Transparency.OPAQUE);
 		Graphics draw = wall.createGraphics();
 		draw.setColor(Color.WHITE);
@@ -80,18 +80,18 @@ public class Paint extends JApplet implements MouseListener, MouseMotionListener
 		};
 		new javax.swing.Timer(20, action).start();
 	}
-	
+
 	public void paint(Graphics g) {
 		g.drawImage(wall,
 			0, 0, getWidth(), getHeight(),
 			0, 0, getWidth(), getHeight(),
 			null);
 	}
-	
+
 	public Dimension getPreferredSize() {
 		return new Dimension(800, 600);
 	}
-	
+
 	public void mousePressed(MouseEvent e) {
 		for (int x=Math.max(0, e.getX()-10); x<Math.min(getWidth(), e.getX()+10); x++) {
 			for (int y=Math.max(0, e.getY()-10); y<Math.min(getHeight(), e.getY()+10); y++) {
@@ -100,27 +100,27 @@ public class Paint extends JApplet implements MouseListener, MouseMotionListener
 			}
 		}
 	}
-	
+
 	public void mouseDragged(MouseEvent e) {
 		mousePressed(e);
 	}
-	
+
 	public void mouseMoved(MouseEvent e) {
 		//
 	}
-	
+
 	public void mouseClicked(MouseEvent e) {
 		//
 	}
-	
+
 	public void mouseReleased(MouseEvent e) {
 		//
 	}
-	
+
 	public void mouseEntered(MouseEvent e) {
 		//
 	}
-	
+
 	public void mouseExited(MouseEvent e) {
 		//
 	}
